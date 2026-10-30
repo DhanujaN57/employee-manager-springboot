@@ -14,7 +14,10 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public List<Employee> getAllEmployees() {
+    public List<Employee> getAllEmployees(String keyword) {
+        if (keyword != null && !keyword.isEmpty()) {
+            return employeeRepository.findByFullNameContainingIgnoreCase(keyword);
+        }
         return employeeRepository.findAll();
     }
 
@@ -22,16 +25,12 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
-
     public Employee getEmployeeById(Long id) {
         Optional<Employee> optional = employeeRepository.findById(id);
-        Employee employee = null;
         if (optional.isPresent()) {
-            employee = optional.get();
-        } else {
-            throw new RuntimeException("Employee not found for id :: " + id);
+            return optional.get();
         }
-        return employee;
+        throw new RuntimeException("Employee not found for id :: " + id);
     }
 
     public void deleteEmployeeById(Long id) {
