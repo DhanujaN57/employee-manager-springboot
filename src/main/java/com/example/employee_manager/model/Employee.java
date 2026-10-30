@@ -1,23 +1,14 @@
-package com.example.employee_manager.model;
+package com.example.employeemanager.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employees")
-@Getter
-@Setter
-@NoArgsConstructor
+@Getter @Setter @NoArgsConstructor
 public class Employee {
 
     @Id
@@ -32,12 +23,14 @@ public class Employee {
     @Column(unique = true)
     private String email;
 
-    @NotBlank(message = "Phone number is required")
+    @NotBlank(message = "Phone is required")
+    @Pattern(regexp = "^\\d{10}$", message = "Phone must be 10 digits")
     private String phone;
 
     @NotBlank(message = "Department is required")
     private String department;
 
-    @Positive(message = "Salary must be positive")
+    @NotNull(message = "Salary is required")
+    @Positive(message = "Salary must be greater than zero")
     private Double salary;
 }

@@ -1,5 +1,4 @@
-// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
-package com.example.employee_manager;
+package com.example.employeemanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.example.employee_manager.repository;
+package com.example.employeemanager.repository;
 
 import com.example.employeemanager.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;

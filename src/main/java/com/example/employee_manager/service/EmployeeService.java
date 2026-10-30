@@ -1,7 +1,7 @@
-package com.example.employee_manager.service;
+package com.example.employeemanager.service;
 
-import com.example.employee_manager.model.Employee;
-import com.example.employee_manager.repository.EmployeeRepository;
+import com.example.employeemanager.model.Employee;
+import com.example.employeemanager.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
